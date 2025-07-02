@@ -17,6 +17,13 @@
         .btn-custom {
             margin: 10px;
         }
+        .feature-icon {
+            font-size: 50px;
+            color: #007bff;
+        }
+        footer {
+            background-color: #007bff;
+        }
     </style>
 </head>
 <body>
@@ -24,7 +31,23 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="#">MedTrack</a>
+            <a class="navbar-brand" href="#">
+                <img src="https://placehold.co/30x30?text=MT" alt="MedTrack Logo" class="d-inline-block align-text-top">
+                MedTrack
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -42,14 +65,17 @@
     <section class="container text-center my-5">
         <div class="row">
             <div class="col-md-4">
+                <div class="feature-icon">🔒</div>
                 <h4>Secure Data</h4>
                 <p>Store and access patient records safely using AWS DynamoDB.</p>
             </div>
             <div class="col-md-4">
+                <div class="feature-icon">🤖</div>
                 <h4>AI Diagnosis</h4>
                 <p>Leverage AI tools for accurate, fast medical diagnosis.</p>
             </div>
             <div class="col-md-4">
+                <div class="feature-icon">☁️</div>
                 <h4>Cloud Hosted</h4>
                 <p>Access MedTrack anytime, anywhere with AWS EC2 hosting.</p>
             </div>
@@ -57,9 +83,15 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white text-center py-3">
+    <footer class="text-white text-center py-3">
         <p class="mb-0">&copy; 2025 MedTrack. All rights reserved.</p>
+        <div>
+            <a href="#" class="text-white me-2">Facebook</a>
+            <a href="#" class="text-white me-2">Twitter</a>
+            <a href="#" class="text-white">LinkedIn</a>
+        </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
