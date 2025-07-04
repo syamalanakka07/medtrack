@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 import boto3
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
+app.secret_key = 'arn:aws:sns:us-east-1:481665113061:Medtrack:fc4f1ea8-3a92-44a7-9d55-049f01bbbd64'
 
 # ---------- AWS DynamoDB Configuration ----------
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')  # Change region if needed
