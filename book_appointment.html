@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f8ff;
+            background-image: linear-gradient(135deg, #e6f0fa 0%, #ffffff 100%);
+        }
+        
+        .appointments-card {
+            box-shadow: 0 10px 25px rgba(0, 105, 204, 0.1);
+            transition: all 0.3s ease;
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .appointments-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 105, 204, 0.15);
+        }
+        
+        .login-card:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+        
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+        
+        .booking-card {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 105, 204, 0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .action-btn {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #0077cc 0%, #00a3e0 100%);
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 119, 204, 0.3);
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center">
+    <div class="max-w-lg mx-auto px-4 w-full">
+        <!-- Brand logo/header -->
+        <div class="text-center mb-8">
+            <div class="flex justify-center mb-4">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 6C9.79 6 8 7.79 8 10C8 12.21 9.79 14 12 14C14.21 14 16 12.21 16 10C16 7.79 14.21 6 12 6ZM12 12C10.9 12 10 11.1 10 10C10 8.9 10.9 8 12 8C13.1 8 14 8.9 14 10C14 11.1 13.1 12 12 12ZM6 18C7 15.24 9.24 13.45 12 13.45C14.76 13.45 17 15.24 18 18H6Z" fill="#4F46E5"/>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-800">Your Appointments</h1>
+            <p class="mt-2 text-gray-600 mb-6">View your upcoming medical appointments</p>
+            <a href="{{ url_for('book_appointment') }}" class="action-btn inline-block px-6 py-3 rounded-lg text-white font-medium">
+                + Add New Appointment
+            </a>
+        </div>
+
+        <!-- Appointments Card -->
+        <div class="appointments-card p-8">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-blue-800">Upcoming Appointments</h1>
+                <p class="mt-2 text-gray-600">Your scheduled healthcare appointments</p>
+            </div>
+            
+            <div class="appointments-list space-y-4">
+                <!-- Sample appointment card -->
+                <div class="border border-blue-100 rounded-lg p-4 bg-blue-50">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-green-500 mr-2"></span>
+                                <h3 class="font-medium text-blue-800">Dr. Smith - General Physician</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-1">April 15, 2024 • 10:00 AM - 10:30 AM</p>
+                            <p class="text-xs text-gray-500 mt-1">Follow-up visit</p>
+                        </div>
+                        <button class="action-btn px-4 py-2 rounded-lg text-white text-sm font-medium">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Second appointment card -->
+                <div class="border border-blue-100 rounded-lg p-4 bg-blue-50">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="flex items-center">
+                                <span class="w-2 h-2 rounded-full bg-blue-500 mr-2"></span>
+                                <h3 class="font-medium text-blue-800">Dr. Johnson - Cardiologist</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">April 15, 2024 • 2:00 PM - 2:45 PM</p>
+                        </div>
+                        <button class="action-btn px-4 py-2 rounded-lg text-white text-sm font-medium">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background decoration (can be changed to match home page) -->
+        <div class="fixed inset-0 -z-10 overflow-hidden">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-b from-blue-50 to-cyan-50 opacity-50" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Simple form validation example
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                e.preventDefault();
+                alert('Please fill in all fields');
+                return false;
+            }
+            
+            // Form is valid, would normally submit here
+            console.log('Login form submitted', { username, password });
+        });
+    </script>
+</body>
+</html>
+
+
